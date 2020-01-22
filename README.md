@@ -7,4 +7,4 @@ This code runs in three parts:
 
 ++ vpncode.py (This code will take the values from configuration file that you download from AWS VPN Console)
 
-++ Stage3.sh (This shell script will bring up the tunnel and the BGP neighborship
+++ Stage3.sh (This shell script will be auto created by vpncode.py and will bring up the tunnel and the BGP neighborship
