@@ -36,12 +36,12 @@ IPaddr = socket.gethostbyname(hostname)
 
 with open('/etc/ipsec.conf' ,'w') as myfile1:
     myfile1.close()
-
+    
 line1 = "conn vpn-123456\n"
 line2 = "type=tunnel\n"
-line3 = "authby=psk\n"
-line4 = "left=IPaddr\n"
-line5 = "right=VGW1\n"
+line3 = "authby=\n"
+line4 = "left="
+line5 = "right="
 line6 = "keyexchange=ikev1\n"
 line7 = "auto=start\n"
 line8 = "ike=aes128-sha1-modp1024\n"
@@ -58,7 +58,8 @@ line18 = "mark=111\n"
 
 
 with open('/etc/ipsec.conf' ,'a') as out:
-    out.writelines([line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17, line18])
+    out.writelines \
+        ([line1, line2, line3, line4+IPaddr, line5+VGW1, line6, line7, line8, line9, line10, line11, line12, line13, line14, line15, line16, line17 ,line18])
     out.close()
 
 with open('/etc/ipsec.secrets' ,'a') as myfile:
